@@ -1,0 +1,14 @@
+{
+  "packages": ["packages/*"],
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "independent": true,
+  "command": {
+    "publish": {
+      "allowBranch": ["master", "monorepo"],
+      "message": "chore(release): publish"
+    }
+  },
+  "version": "independent",
+  "lerna": "4.0.0"
+}
