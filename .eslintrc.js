@@ -1,24 +1,28 @@
-const fabric = require('@umijs/fabric');
-
 module.exports = {
-  ...fabric.default,
-  rules: {
-    ...fabric.default.rules,
-    'no-restricted-syntax': 'off',
-    'no-plusplus': 'off',
-    'no-underscore-dangle': 'off',
-    'consistent-return': 'off',
-    '@typescript-eslint/ban-ts-ignore': 'off',
-    '@typescript-eslint/no-object-literal-type-assertion': 'off',
-    'consistent-return': 'off',
-    'import/no-useless-path-segments': 'off',
-    'no-unused-expressions': 'off',
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
+  env: {
+    es6: true,
+    node: true
   },
-  plugins: [...fabric.default.plugins, 'react-hooks'],
+  extends: [
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended'
+  ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ...fabric.default.parserOptions,
-    project: './packages/**/tsconfig.json',
+    project: 'tsconfig.json',
+    sourceType: 'module'
   },
-};
+  plugins: ['@typescript-eslint'],
+  rules: {
+    '@typescript-eslint/no-use-before-define': 0,
+    '@typescript-eslint/member-delimiter-style': 0, // set to off, because it is conflict with prettier,
+    '@typescript-eslint/no-explicit-any': 0
+  },
+
+  ignorePatterns: [
+    '*.js',
+    '**/dist/**/*.ts',
+    '**/*.test.ts',
+    'node_modules'
+  ]
+}
