@@ -14,12 +14,12 @@ function useToggle<T = IState>(defaultValue: T): [T, Actions<T>];
 
 function useToggle<T = IState, U = IState>(
   defaultValue: T,
-  reverseValue: U,
+  reverseValue: U
 ): [T | U, Actions<T | U>];
 
 function useToggle<D extends IState = IState, R extends IState = IState>(
   defaultValue: D = false as D,
-  reverseValue?: R,
+  reverseValue?: R
 ) {
   const [state, setState] = useState<D | R>(defaultValue);
 
@@ -42,7 +42,7 @@ function useToggle<D extends IState = IState, R extends IState = IState>(
     return {
       toggle,
       setLeft,
-      setRight
+      setRight,
     };
   }, [defaultValue, reverseValue]);
 

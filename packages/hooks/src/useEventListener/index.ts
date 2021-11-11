@@ -13,25 +13,25 @@ type Options<T extends Target = Target> = {
 function useEventListener<K extends keyof HTMLElementEventMap>(
   eventName: K,
   handler: (ev: HTMLElementEventMap[K]) => void,
-  options?: Options<HTMLElement>,
+  options?: Options<HTMLElement>
 ): void;
 
 function useEventListener<K extends keyof ElementEventMap>(
   eventName: K,
   handler: (ev: ElementEventMap[K]) => void,
-  options?: Options<Element>,
+  options?: Options<Element>
 ): void;
 
 function useEventListener<K extends keyof DocumentEventMap>(
   eventName: K,
   handler: (ev: DocumentEventMap[K]) => void,
-  options?: Options<Document>,
+  options?: Options<Document>
 ): void;
 
 function useEventListener<K extends keyof WindowEventMap>(
   eventName: K,
   handler: (ev: WindowEventMap[K]) => void,
-  options?: Options<Window>,
+  options?: Options<Window>
 ): void;
 
 function useEventListener(eventName: string, handler: Function, options: Options): void;
@@ -46,7 +46,9 @@ function useEventListener(eventName: string, handler: Function, options: Options
       return;
     }
 
-    const eventListener = (event: Event): EventListenerOrEventListenerObject | AddEventListenerOptions => {
+    const eventListener = (
+      event: Event
+    ): EventListenerOrEventListenerObject | AddEventListenerOptions => {
       return handlerRef.current && handlerRef.current(event);
     };
 
@@ -58,7 +60,7 @@ function useEventListener(eventName: string, handler: Function, options: Options
 
     return () => {
       targetElement.removeEventListener(eventName, eventListener, {
-        capture: options.capture
+        capture: options.capture,
       });
     };
   }, [eventName, options.target, options.capture, options.once, options.passive]);

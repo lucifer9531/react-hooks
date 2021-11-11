@@ -1,0 +1,34 @@
+{
+  "name": "react-hooks",
+  "version": "0.0.1",
+  "description": "react hooks library",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "hooks",
+    "react hooks"
+  ],
+  "scripts": {
+    "build": "tsc -b .",
+    "watch": "tsc -w"
+  },
+  "authors": "IRIS",
+  "license": "MIT",
+  "homepage": "https://github.com/ruixijeijie/react-hooks",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ruixijiejie/react-hooks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ruixijiejie/react-hooks/issues"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6 || ^17.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}

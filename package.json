@@ -1,138 +1,45 @@
 {
-  "name": "react-hooks",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
+    "init": "rm -rf node_modules && yarn install && yarn run clean && yarn run bootstrap && yarn run build",
     "bootstrap": "lerna bootstrap",
+    "watch": "lerna run watch --parallel",
+    "clean": "lerna clean --yes",
     "build": "lerna run build",
-    "toc": "markdown-toc -i README.md",
-    "lint": "eslint packages --ext .ts --fix",
-    "commit": "git-cz",
+    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
+    "lint:prettier": "prettier --write  \"packages/**/src/**/*.{js,ts,md}\"",
+    "format": "prettier --write src/**/*.ts",
     "changelog": "conventional-changelog -i CHANGELOG.md -s",
-    "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate",
-    "lerna-tsc": "lerna run tsc"
+    "lerna-tsc": "lerna run tsc",
+    "pub": "lerna publish --no-verify-access",
+    "prepare": "husky install"
+  },
+  "homepage": "https://github.com/ruixijiejie/react-hooks",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ruixijiejie/react-hooks.git"
+  },
+  "author": "IRIS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ruixijiejie/react-hooks/issues"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^13.1.0",
     "@types/jest": "^23.3.2",
     "@types/node": "^10.11.0",
-    "@typescript-eslint/eslint-plugin": "^2.28.0",
-    "@typescript-eslint/parser": "^2.28.0",
-    "all-contributors-cli": "^5.6.0",
-    "conventional-changelog-cli": "^2.0.11",
-    "cz-emoji": "^1.1.2",
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
     "eslint": "^6.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "husky": "^7.0.4",
-    "is-builtin-module": "^3.0.0",
     "jest": "^24.9.0",
     "lerna": "^4.0.0",
-    "lint-staged": "^7.3.0",
-    "markdown-toc": "^1.2.0",
+    "lint-staged": "^11.1.2",
     "prettier": "^2.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "rollup": "^2.59.0",
-    "rollup-plugin-auto-external": "^2.0.0",
-    "rollup-plugin-typescript2": "^0.30.0",
     "typescript": "^4.4.4"
-  },
-  "lint-staged": {
-    "*.ts": [
-      "yarn run lint",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-emoji"
-    },
-    "cz-emoji": {
-      "types": [
-        {
-          "emoji": "\t🌟",
-          "code": ":star2:",
-          "description": "\tA new feature",
-          "name": "feat"
-        },
-        {
-          "emoji": "\t🐞",
-          "code": ":beetle:",
-          "description": "\tA bug fix",
-          "name": "fix"
-        },
-        {
-          "emoji": "\t🎨",
-          "code": ":art:",
-          "description": "\tNeither fixes a bug nor adds a feature",
-          "name": "refactor"
-        },
-        {
-          "emoji": "\t🚓",
-          "code": ":police_car:",
-          "description": "\t Testing improved with new or fixed tests",
-          "name": "test"
-        },
-        {
-          "emoji": "\t🔩",
-          "code": ":nut_and_bolt:",
-          "description": "\tDoesn't modify src or test files",
-          "name": "chore"
-        },
-        {
-          "emoji": "\t💰",
-          "code": ":moneybag:",
-          "description": "\tImproves performance with this change",
-          "name": "perf"
-        },
-        {
-          "emoji": "\t🚥",
-          "code": ":traffic_light:",
-          "description": "\tCI config files and scripts",
-          "name": "ci"
-        },
-        {
-          "emoji": "\t♻️",
-          "code": ":recycle:",
-          "description": "\tOptimize workflow",
-          "name": "workflow"
-        },
-        {
-          "emoji": "\t🚀",
-          "code": ":rocket:",
-          "description": "\tBuild system config or external dependencies",
-          "name": "build"
-        },
-        {
-          "emoji": "\t📚",
-          "code": ":books:",
-          "description": "\tDocumentation change",
-          "name": "docs"
-        },
-        {
-          "emoji": "\t💊",
-          "code": ":pill:",
-          "description": "\tReverts a previous commit",
-          "name": "revert"
-        },
-        {
-          "emoji": "\t🎉",
-          "code": ":tada:",
-          "description": "\tInitialize a new package.",
-          "name": "init"
-        }
-      ],
-      "scopes": [
-        "cli",
-        "parser",
-        "markdown-render"
-      ]
-    }
   }
 }

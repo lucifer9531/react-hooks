@@ -10,7 +10,7 @@ type TargetElement = HTMLElement | Element | Document | Window;
 
 export function getTargetElement(
   target?: BasicTarget<TargetElement>,
-  defaultElement?: TargetElement,
+  defaultElement?: TargetElement
 ): TargetElement | undefined | null {
   if (!target) {
     return defaultElement;

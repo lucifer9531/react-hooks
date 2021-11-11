@@ -19,7 +19,7 @@ function getConnection() {
 
 function getConnectionProperty(): NetworkState {
   const c = getConnection();
-  if (!c) return  {};
+  if (!c) return {};
   return {
     rtt: c.rtt,
     type: c.type,
@@ -35,7 +35,7 @@ function useNetwork(): NetworkState {
     return {
       since: undefined,
       online: navigator.onLine,
-      ...getConnectionProperty()
+      ...getConnectionProperty(),
     };
   });
 

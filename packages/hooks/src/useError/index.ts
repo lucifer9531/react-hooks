@@ -12,6 +12,6 @@ const useError = (): ((err: Error) => void) => {
   return useCallback((err: Error): void => {
     setError(err);
   }, []);
-}
+};
 
 export default useError;

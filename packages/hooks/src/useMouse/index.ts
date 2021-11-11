@@ -16,8 +16,8 @@ const initState: CursorState = {
   clientX: NaN,
   clientY: NaN,
   pageX: NaN,
-  pageY: NaN
-}
+  pageY: NaN,
+};
 
 const useMouse = () => {
   const [state, setState] = useState(initState);
@@ -34,6 +34,6 @@ const useMouse = () => {
   );
 
   return state;
-}
+};
 
 export default useMouse;

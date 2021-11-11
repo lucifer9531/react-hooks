@@ -1,10 +1,10 @@
-### Example user template template
-### Example user template
+**/node_modules
+lerna-debug.log
 
-# IntelliJ project files
+lib/
+
+yarn.lock
+tsconfig.tsbuildinfo
 .idea
-*.iml
-out
-gen
 
-node_modules
+packages/lib/
